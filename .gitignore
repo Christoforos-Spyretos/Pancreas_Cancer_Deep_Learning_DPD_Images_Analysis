@@ -1,0 +1,6 @@
+# ignore model wheights
+models/CONCH_v1/
+models/CONCH_v1_5/
+
+# ignore model logs
+models/CLAM/results/
