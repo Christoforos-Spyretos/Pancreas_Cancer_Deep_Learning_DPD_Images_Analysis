@@ -1,0 +1,29 @@
+# CUDA_VISIBLE_DEVICES=0 python extract_features_fp.py
+
+# random seed for reproducibility
+seed: 1
+# slide file extension
+slide_ext: .svs
+# feature extractor selection
+model_name:  # options: conch, conchv1_5 
+# batch size for data loading
+batch_size: 256
+# size of h5 files in GB (only when using virchow and virchow2)
+dataset_size_gb: 100 # adjust the size of h5 files to be loaded in memory directly or in chunks if there is memory allocation issues  
+# number of worker threads for data loading
+num_workers: 12
+# skip or not processed slides
+auto_skip: True
+# image patch size 
+target_patch_size: 224 
+# path to directory containing h5 files
+data_h5_dirs: /local/data3/chrsp39/DPD-AI/${target_patch_size}x${target_patch_size}/
+# path to directory containing slide files
+data_slide_dirs: /local/data3/chrsp39/DPD-AI/TMA
+# path to the CSV file listing case_id, slide_id, label
+csv_paths: /local/data3/chrsp39/DPD-AI/
+# output directory to save the features
+feat_dirs: /local/data3/chrsp39/DPD-AI/${model_name}
+
+
+

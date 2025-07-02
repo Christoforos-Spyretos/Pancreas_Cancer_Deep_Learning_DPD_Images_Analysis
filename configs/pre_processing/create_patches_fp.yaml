@@ -1,0 +1,28 @@
+# CUDA_VISIBLE_DEVICES=0 python create_patches_fp.py
+
+# path to folder containing raw wsi image files
+source: /local/data3/chrsp39/DPD-AI/TMA
+# step_size
+step_size: 224
+# patch_size
+patch_size: 224
+# perfrom patching
+patch: True
+# perform segmentation
+seg: True
+# perform stiching
+stitch: True
+# skip or not processed slides
+no_auto_skip: True
+# directory to save processed data
+save_dir: /local/data3/chrsp39/DPD-AI
+# predefined profile of default segmentation and filter parameters (.csv)
+preset: False
+# downsample level at which to patch
+patch_level: 0
+# name of list of images to process with parameters (.csv)
+process_list: False
+# use default segmentation and filter parameters
+use_default_params: False
+# saved masked images
+save_mask: True

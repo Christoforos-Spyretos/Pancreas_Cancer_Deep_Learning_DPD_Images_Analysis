@@ -1,0 +1,86 @@
+# CUDA_VISIBLE_DEVICES=0 python run_model.py -m stain_modality.description=Merged_HE,Merged_KI67,Merged_GFAP,Merged_HE_KI67,Merged_HE_GFAP,Merged_HE_KI67_GFAP
+
+hydra:
+  searchpath:
+    - /local/data1/chrsp39/Pancreas_Cancer_Deep_Learning_DPD_Images_Analysis/configs
+
+# random seed for reproducibility
+seed: 1
+# classification task
+task: 4_class
+# number of classes 
+n_classes: 4
+# class labels
+label_dict :
+  0: 0
+  1: 1
+  2: 2
+  3: 3
+# directory to features
+data_root_dir: /local/data3/chrsp39/DPD-AI/${model_name} # defined in a separate yaml file
+# path to csv file
+csv_path: /local/data3/chrsp39/DPD-AI/
+# stratify samples by patient
+patient_strat: False
+# shuffle the data before training
+shuffle: False
+# information during the training
+print_info: True
+# type of feature
+feature_type: # options: conch_v1, conch_v1_5
+# dimensionality of features
+embed_dim:  # conch_v1 512, conchv1_5 768
+# maximum number of training epochs
+max_epochs: 20
+# learning rate
+lr: 0.0001
+lr_scheduler: None # options:'cosine'
+# fraction of training labels
+label_frac: 1.0
+# weight decay
+reg: 1e-5
+# number of folds
+k: 50
+# start fold 
+k_start: -1 # (default: -1, last fold)
+# end fold
+k_end: -1 # (default: -1, first fold)
+# results directory
+results_dir: ./results
+# experiment name for saving results
+exp_code: ${task}_${model_size}_${model_type}_${feature_type}
+# directory to splits
+split_dir: /local/data1/chrsp39/Pancreas_Cancer_Deep_Learning_DPD_Images_Analysis/models/CLAM/splits
+# log data using tensorboard
+log_data: True
+# debugging tool
+testing: False
+# enable early stopping
+early_stopping: True
+# optimizer
+opt: adam # options: 'adam', 'sgd'
+# dropout rate
+drop_out: 0.25
+# slide-level classification loss function
+bag_loss: ce # options: svm, ce
+# aggregation menthod
+model_type: clam_sb #options: clam_sb, clam_mb, mil, abmil
+# experiment name for saving results 
+exp_code: # defined in a separate yaml file
+# enable weighted sampling
+weighted_sample: False
+# enable class weights
+use_class_weights: True
+# size of model, does not affect mil, abmil
+model_size: small # option: small, big (only for clam_sb, clam_mb)
+# disable instance-level clustering
+no_inst_cluster: False
+# instance-level clustering loss function
+inst_loss: svm # options: svm, ce, None
+# subtyping problem
+subtyping: True
+# clam: weight coefficient for bag-level loss
+bag_weight: 0.7
+# numbr of positive/negative patches to sample for clam
+B: 8
+ignore: null
