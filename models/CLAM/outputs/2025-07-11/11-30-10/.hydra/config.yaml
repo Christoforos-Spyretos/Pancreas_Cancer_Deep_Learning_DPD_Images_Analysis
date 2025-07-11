@@ -1,0 +1,15 @@
+source:
+- /local/data3/chrsp39/DPD-AI/TMA
+step_size: 224
+patch_size: 224
+patch: true
+seg: true
+stitch: true
+no_auto_skip: true
+save_dir:
+- /local/data3/chrsp39/DPD-AI
+preset: false
+patch_level: 0
+process_list: false
+use_default_params: false
+save_mask: true
