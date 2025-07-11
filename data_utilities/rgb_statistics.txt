@@ -1,0 +1,15 @@
+Total pixels processed: 63,646,599,847
+Red Channel:
+  Mean intensity: 214.78
+  Std deviation: 27.38
+  Peak intensity: 227
+
+Green Channel:
+  Mean intensity: 209.87
+  Std deviation: 34.02
+  Peak intensity: 226
+
+Blue Channel:
+  Mean intensity: 212.93
+  Std deviation: 36.85
+  Peak intensity: 231

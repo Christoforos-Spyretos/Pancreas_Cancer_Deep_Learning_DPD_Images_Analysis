@@ -1,0 +1,24 @@
+Hue Channel (0-179):
+  Mean hue: 95.69
+  Std deviation: 52.06
+  Peak hue: 110
+
+Saturation Channel (0-255):
+  Mean saturation: 16.85
+  Std deviation: 23.98
+  Peak saturation: 3
+
+Value/Brightness Channel (0-255):
+  Mean value: 219.32
+  Std deviation: 26.72
+  Peak value: 231
+
+Saturation distribution:
+  Low saturation (0-63): 94.4%
+  Medium saturation (64-191): 5.6%
+  High saturation (192-255): 0.0%
+
+Brightness distribution:
+  Dark (0-63): 0.2%
+  Medium brightness (64-191): 12.2%
+  Bright (192-255): 87.7%

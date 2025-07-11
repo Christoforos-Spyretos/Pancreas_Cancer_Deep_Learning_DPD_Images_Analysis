@@ -285,15 +285,14 @@ def main(cfg:DictConfig):
 
 		seg_params = {'seg_level': -1,
 				'sthresh': 8,
-				'mthresh': 7,
-				'close': 4,
+				'mthresh': 3,
+				'close': 1,
 				'use_otsu': True,
 				'keep_ids': 'none', 
-				'exclude_ids': 
-				'none'}
+				'exclude_ids': 'none'}
 		
 		filter_params = {'a_t':1,
-				   'a_h': 1000,
+				   'a_h': 100000,
 				   'max_n_holes':1000000}
 		
 		vis_params = {'vis_level': -1,
