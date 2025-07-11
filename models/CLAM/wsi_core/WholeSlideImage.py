@@ -95,7 +95,7 @@ class WholeSlideImage(object):
         save_pkl(mask_file, asset_dict)
 
     def segmentTissue(self, seg_level=0, sthresh=20, sthresh_up = 255, mthresh=7, close = 0, use_otsu=False, 
-                            filter_params={'a_t':100}, ref_patch_size=2, exclude_ids=[], keep_ids=[]):
+                            filter_params={'a_t':100}, ref_patch_size=6, exclude_ids=[], keep_ids=[]):
         """
             Segment the tissue via HSV -> Median thresholding -> Binary threshold
         """
