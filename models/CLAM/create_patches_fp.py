@@ -299,7 +299,7 @@ def main(cfg:DictConfig):
 				'line_thickness': 70}
 		
 		patch_params = {'use_padding': True,
-				  'contour_fn': 'four_pt_hard'}
+				  'contour_fn': 'four_pt'}
 
 		if cfg.preset:
 			preset_df = pd.read_csv(os.path.join(cfg.save_dir,'presets',))
