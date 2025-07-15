@@ -5,13 +5,13 @@ seed: 1
 # slide file extension
 slide_ext: .tif
 # feature extractor selection
-model_name: conch_v1  # options: conch, conchv1_5 
+model_name: conch_v1  # options: conch_v1, conch_v1_5 
 # batch size for data loading
-batch_size: 256
+batch_size: 512
 # size of h5 files in GB (only when using virchow and virchow2)
 dataset_size_gb: 100 # adjust the size of h5 files to be loaded in memory directly or in chunks if there is memory allocation issues  
 # number of worker threads for data loading
-num_workers: 12
+num_workers: 1 
 # skip or not processed slides
 auto_skip: True
 # image patch size 

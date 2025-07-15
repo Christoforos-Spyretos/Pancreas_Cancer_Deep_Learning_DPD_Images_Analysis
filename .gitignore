@@ -7,3 +7,6 @@ models/CLAM/results/
 
 # ignore hydra outputa
 models/CLAM/outputs
+
+# ignore test scripts 
+test.py
