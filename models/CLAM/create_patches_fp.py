@@ -284,16 +284,16 @@ def main(cfg:DictConfig):
 				os.makedirs(val, exist_ok=True)
 
 		seg_params = {'seg_level': -1,
-				'sthresh': 8,
+				'sthresh': 4,
 				'mthresh': 3,
-				'close': 1,
+				'close': 60,
 				'use_otsu': True,
 				'keep_ids': 'none', 
 				'exclude_ids': 'none'}
 		
 		filter_params = {'a_t':1,
-				   'a_h': 100000,
-				   'max_n_holes':1000000}
+				   'a_h': 100,
+				   'max_n_holes':10000000}
 		
 		vis_params = {'vis_level': -1,
 				'line_thickness': 70}

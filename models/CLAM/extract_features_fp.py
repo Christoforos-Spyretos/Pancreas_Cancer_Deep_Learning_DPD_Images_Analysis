@@ -86,7 +86,7 @@ def build_experiment_name(cfg):
 					str(cfg.target_patch_size)])
 
 @hydra.main(version_base="1.3.2", 
-			config_path= '/local/data1/chrsp39/Pancreas_Cancer_Deep_Learning_DPD_Images_Analysis/configs/extract_features_fp',
+			config_path= '/local/data1/chrsp39/Pancreas_Cancer_Deep_Learning_DPD_Images_Analysis/configs/pre_processing',
 			config_name= 'extract_features_fp')
 			
 def main(cfg:DictConfig):

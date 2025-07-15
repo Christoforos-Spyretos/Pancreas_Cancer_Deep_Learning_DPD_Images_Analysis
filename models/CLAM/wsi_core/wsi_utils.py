@@ -8,7 +8,7 @@ import math
 import cv2
 from tqdm import tqdm
 
-def isWhitePatch(patch, satThresh=20, brightnessThresh=200):
+def isWhitePatch(patch, satThresh=20, brightnessThresh=215):
     patch_hsv = cv2.cvtColor(patch, cv2.COLOR_RGB2HSV)
     # Check if the saturation is below the threshold and brightness is above the threshold
     if np.mean(patch_hsv[:,:,1]) < satThresh and np.mean(patch_hsv[:,:,2]) > brightnessThresh:
