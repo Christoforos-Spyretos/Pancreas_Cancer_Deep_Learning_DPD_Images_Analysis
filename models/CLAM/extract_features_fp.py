@@ -128,7 +128,7 @@ def main(cfg:DictConfig):
 		bags_dataset = Dataset_All_Bags(csv_path)
 		
 		os.makedirs(cfg.feat_dir, exist_ok=True)
-		if cfg.model_name in ['resnet50', 'uni', 'conch', 'hipt', 'prov-gigapath', 'uni2-h']:
+		if cfg.model_name in ['resnet50', 'uni', 'conch_v1', 'hipt', 'prov-gigapath', 'uni2-h']:
 			os.makedirs(os.path.join(cfg.feat_dir, 'pt_files'), exist_ok=True)
 			dest_files = os.listdir(os.path.join(cfg.feat_dir, 'pt_files'))
 		elif cfg.model_name in ['virchow', 'virchow2']:
@@ -157,7 +157,7 @@ def main(cfg:DictConfig):
 			print('\nprogress: {}/{}'.format(bag_candidate_idx+1, total))
 			print(slide_id)
 
-			if cfg.model_name in ['resnet50', 'uni', 'conch', 'hipt', 'prov-gigapath', 'uni2-h']:
+			if cfg.model_name in ['resnet50', 'uni', 'conch_v1', 'hipt', 'prov-gigapath', 'uni2-h']:
 				if cfg.auto_skip:
 					if slide_id+'.pt' in dest_files:
 						print('skipped {}'.format(slide_id))
@@ -183,7 +183,7 @@ def main(cfg:DictConfig):
 				time_elapsed = time.time() - time_start
 				print('\ncomputing features for {} took {} s'.format(output_file_path, time_elapsed))
 
-			if cfg.model_name in ['resnet50', 'uni', 'conch', 'hipt', 'prov-gigapath', 'uni2-h']:
+			if cfg.model_name in ['resnet50', 'uni', 'conch_v1', 'hipt', 'prov-gigapath', 'uni2-h']:
 
 				with h5py.File(output_file_path, "r") as file:
 					features = file['features'][:]
