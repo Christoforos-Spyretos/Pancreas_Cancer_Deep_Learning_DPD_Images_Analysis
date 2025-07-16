@@ -1,3 +1,5 @@
+# python create_splits_seq.py --task task_1_tumor_vs_normal --seed 1 --k 10
+
 import pdb
 import os
 import pandas as pd
@@ -21,11 +23,11 @@ args = parser.parse_args()
 
 if args.task == 'DPD_4_class_score':
     args.n_classes=4
-    dataset = Generic_WSI_Classification_Dataset(csv_path = '/local/data1/chrsp39/Pancreas_Cancer_Deep_Learning_DPD_Images_Analysis',
+    dataset = Generic_WSI_Classification_Dataset(csv_path = '/local/data3/chrsp39/DPD-AI/CSVs/4_class.csv',
                             shuffle = False,
                             seed = args.seed, 
                             print_info = True,
-                            label_dict = {'0':0, '1':1, '2':2, '3':3},
+                            label_dict = {0:0, 1:1, 2:2, 3:3},
                             patient_strat= True,
                             patient_voting='maj',
                             ignore=[])
