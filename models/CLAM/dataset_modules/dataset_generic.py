@@ -138,7 +138,7 @@ class Generic_WSI_Classification_Dataset(Dataset):
 		data.reset_index(drop=True, inplace=True)
 		for i in data.index:
 			key = data.loc[i, 'label']
-			data.at[i, 'label'] = label_dict[key]
+			data.at[i, 'label'] = label_dict[int(key)]
 
 		return data
 

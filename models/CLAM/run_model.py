@@ -39,7 +39,6 @@ def seed_torch(seed=7):
 
 def build_experiment_name(cfg):
     return '_'.join([str(cfg.seed),
-                    str(cfg.stain_modality.description),
                     str(cfg.n_classes),
                     str(cfg.label_dict),
                     str(cfg.data_root_dir),
@@ -79,7 +78,7 @@ def build_experiment_name(cfg):
                     str(cfg.ignore)])
 
 @hydra.main(version_base="1.3.2", 
-			config_path= '/local/data1/chrsp39/Pancreas_Cancer_Deep_Learning_DPD_Images_Analysis/configs/evaluation',
+			config_path= '/local/data1/chrsp39/Pancreas_Cancer_Deep_Learning_DPD_Images_Analysis/configs/classification',
 			config_name='run_model')
 
 def main(cfg:DictConfig):
@@ -132,7 +131,7 @@ def main(cfg:DictConfig):
         print(f'Task description: {cfg.task}')
 
     dataset = Generic_MIL_Dataset(csv_path = cfg.csv_path,
-                                data_dir= os.path.join(cfg.stain_modality.data_root_dir),
+                                data_dir= os.path.join(cfg.data_root_dir),
                                 shuffle = cfg.shuffle, 
                                 seed = cfg.seed, 
                                 print_info = cfg.print_info,
@@ -146,7 +145,7 @@ def main(cfg:DictConfig):
     if not os.path.isdir(cfg.results_dir):
         os.mkdir(cfg.results_dir)
 
-    cfg.results_dir = os.path.join(cfg.results_dir, str(cfg.stain_modality.exp_code) + '_s{}'.format(cfg.seed))
+    cfg.results_dir = os.path.join(cfg.results_dir, str(cfg.exp_code) + '_s{}'.format(cfg.seed))
     if not os.path.isdir(cfg.results_dir):
         os.mkdir(cfg.results_dir)
 

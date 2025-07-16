@@ -1,4 +1,4 @@
-# CUDA_VISIBLE_DEVICES=0 python run_model.py -m stain_modality.description=Merged_HE,Merged_KI67,Merged_GFAP,Merged_HE_KI67,Merged_HE_GFAP,Merged_HE_KI67_GFAP
+# CUDA_VISIBLE_DEVICES=0 python run_model.py
 
 hydra:
   searchpath:
@@ -17,9 +17,9 @@ label_dict :
   2: 2
   3: 3
 # directory to features
-data_root_dir: /local/data3/chrsp39/DPD-AI/${model_name} # defined in a separate yaml file
+data_root_dir: /local/data3/chrsp39/DPD-AI/features/${feature_type} 
 # path to csv file
-csv_path: /local/data3/chrsp39/DPD-AI/
+csv_path: /local/data3/chrsp39/DPD-AI/CSVs/4_class.csv
 # stratify samples by patient
 patient_strat: False
 # shuffle the data before training
@@ -27,9 +27,9 @@ shuffle: False
 # information during the training
 print_info: True
 # type of feature
-feature_type: # options: conch_v1, conch_v1_5
+feature_type: conch_v1 # options: conch_v1, conch_v1_5
 # dimensionality of features
-embed_dim:  # conch_v1 512, conchv1_5 768
+embed_dim: 512  # conch_v1 512, conchv1_5 768
 # maximum number of training epochs
 max_epochs: 20
 # learning rate
@@ -50,7 +50,7 @@ results_dir: ./results
 # experiment name for saving results
 exp_code: ${task}_${model_size}_${model_type}_${feature_type}
 # directory to splits
-split_dir: /local/data1/chrsp39/Pancreas_Cancer_Deep_Learning_DPD_Images_Analysis/models/CLAM/splits
+split_dir: /local/data1/chrsp39/Pancreas_Cancer_Deep_Learning_DPD_Images_Analysis/models/CLAM/splits/DPD_4_class_score_100
 # log data using tensorboard
 log_data: True
 # debugging tool
@@ -65,8 +65,6 @@ drop_out: 0.25
 bag_loss: ce # options: svm, ce
 # aggregation menthod
 model_type: clam_sb #options: clam_sb, clam_mb, mil, abmil
-# experiment name for saving results 
-exp_code: # defined in a separate yaml file
 # enable weighted sampling
 weighted_sample: False
 # enable class weights
