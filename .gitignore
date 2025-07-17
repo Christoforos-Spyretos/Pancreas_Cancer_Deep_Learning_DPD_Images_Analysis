@@ -4,6 +4,10 @@ models/CONCH_v1_5/
 
 # ignore model logs
 models/CLAM/results/
+models/CLAM/eval_results/
+
+# ignore model splits
+models/CLAM/splits/
 
 # ignore hydra outputa
 models/CLAM/outputs

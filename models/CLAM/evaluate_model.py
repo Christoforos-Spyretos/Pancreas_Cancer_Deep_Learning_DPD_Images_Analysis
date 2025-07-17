@@ -34,7 +34,6 @@ def seed_torch(seed=7):
 
 def build_experiment_name(cfg):
     return '_'.join([str(cfg.seed),
-                    str(cfg.stain_modality.description),
                     str(cfg.n_classes),
                     str(cfg.label_dict),
                     str(cfg.csv_path),
@@ -71,8 +70,8 @@ def main(cfg:DictConfig):
 
     experiment_name = build_experiment_name(cfg)
 
-    save_dir = os.path.join('./eval_results', 'EVAL_' + str(cfg.stain_modality.save_exp_code))
-    models_dir = os.path.join(cfg.results_dir, str(cfg.stain_modality.models_exp_code))
+    save_dir = os.path.join('./eval_results', 'EVAL_' + str(cfg.save_exp_code))
+    models_dir = os.path.join(cfg.results_dir, str(cfg.models_exp_code))
     print(models_dir)
 
     os.makedirs(save_dir, exist_ok=True)
@@ -102,7 +101,7 @@ def main(cfg:DictConfig):
     print(settings)
 
     dataset = Generic_MIL_Dataset(csv_path = cfg.csv_path,
-                            data_dir= os.path.join(cfg.stain_modality.data_root_dir),
+                            data_dir= os.path.join(cfg.data_root_dir),
                             shuffle = cfg.shuffle, 
                             print_info = cfg.print_info,
                             label_dict = cfg.label_dict,

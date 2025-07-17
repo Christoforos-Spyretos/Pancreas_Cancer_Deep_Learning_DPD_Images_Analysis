@@ -1,5 +1,4 @@
-# CUDA_VISIBLE_DEVICES=0 python evaluate_model.py -m stain_modality.description=Merged_HE,Merged_KI67,Merged_GFAP,Merged_HE_KI67,Merged_HE_GFAP,Merged_HE_KI67_GFAP
-
+# CUDA_VISIBLE_DEVICES=0 python evaluate_model.py
 hydra:
   searchpath:
     - /local/data1/chrsp39/Pancreas_Cancer_Deep_Learning_DPD_Images_Analysis/configs
@@ -17,7 +16,7 @@ label_dict :
   2: 2
   3: 3
 # path to csv file
-csv_path: /local/data3/chrsp39/DPD-AI
+csv_path: /local/data3/chrsp39/DPD-AI/CSVs/4_class.csv
 # stratify samples by patient
 patient_strat: False
 # shuffle the data before training
@@ -29,17 +28,17 @@ results_dir: /local/data1/chrsp39/Pancreas_Cancer_Deep_Learning_DPD_Images_Analy
 # whether model uses dropout
 drop_out: False
 # type of feature
-feature_type: # options: conch_v1, conch_v1_5
+feature_type: conch_v1 # options: conch_v1, conch_v1_5
 # dimensionality of features
-embed_dim:  # conch_v1 512, conchv1_5 768
+embed_dim: 512 # conch_v1 512, conchv1_5 768
 # directory to features
-data_root_dir: /local/data3/chrsp39/DPD-AI/${feature_type}
+data_root_dir: /local/data3/chrsp39/DPD-AI/features/${feature_type} 
 # experiment code to save eval results
 save_exp_code: ${task}_${model_size}_${model_type}_${feature_type}
 # experiment code to load trained models
 models_exp_code: ${task}_${model_size}_${model_type}_${feature_type}_s1
 # splits directory
-splits_dir: /local/data1/chrsp39/Pancreas_Cancer_Deep_Learning_DPD_Images_Analysis/models/CLAM/
+splits_dir: /local/data1/chrsp39/Pancreas_Cancer_Deep_Learning_DPD_Images_Analysis/models/CLAM/splits/DPD_4_class_score_100
 # size of model, does not affect mil, abmil
 model_size: small # options: small, big (only for clam_sb, clam_mb)
 # aggregation menthod
