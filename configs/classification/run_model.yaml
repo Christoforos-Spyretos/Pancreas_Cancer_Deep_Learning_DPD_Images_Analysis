@@ -7,19 +7,19 @@ hydra:
 # random seed for reproducibility
 seed: 1
 # classification task
-task: 4_class
+task: 0_1_2_classes
 # number of classes 
-n_classes: 4
+n_classes: 3
 # class labels
 label_dict :
   0: 0
   1: 1
   2: 2
-  3: 3
+  # 3: 3
 # directory to features
 data_root_dir: /local/data3/chrsp39/DPD-AI/features/${feature_type} 
 # path to csv file
-csv_path: /local/data3/chrsp39/DPD-AI/CSVs/4_class.csv
+csv_path: /local/data3/chrsp39/DPD-AI/CSVs/0_1_2_classes.csv
 # stratify samples by patient
 patient_strat: False
 # shuffle the data before training
@@ -50,7 +50,7 @@ results_dir: ./results
 # experiment name for saving results
 exp_code: ${task}_${model_size}_${model_type}_${feature_type}
 # directory to splits
-split_dir: /local/data1/chrsp39/Pancreas_Cancer_Deep_Learning_DPD_Images_Analysis/models/CLAM/splits/DPD_4_class_score_100
+split_dir: /local/data1/chrsp39/Pancreas_Cancer_Deep_Learning_DPD_Images_Analysis/models/CLAM/splits/DPD_0_1_2_classes_100
 # log data using tensorboard
 log_data: True
 # debugging tool

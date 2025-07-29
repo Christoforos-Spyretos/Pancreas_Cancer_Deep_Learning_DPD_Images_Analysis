@@ -1,4 +1,4 @@
-# python create_splits_seq.py --task task_1_tumor_vs_normal --seed 1 --k 10
+# python create_splits_seq.py --task DPD_0_1_2_classes --seed 1 --k 50
 
 import pdb
 import os
@@ -14,7 +14,7 @@ parser.add_argument('--seed', type=int, default=1,
                     help='random seed (default: 1)')
 parser.add_argument('--k', type=int, default=5,
                     help='number of splits (default: 50)')
-parser.add_argument('--task', type=str, choices=['DPD_4_class_score'])
+parser.add_argument('--task', type=str, choices=['DPD_4_class_score', 'DPD_0_1_2_classes'])
 parser.add_argument('--val_frac', type=float, default= 0.2,
                     help='fraction of labels for validation (default: 0.1)')
 parser.add_argument('--test_frac', type=float, default= 0.3,
@@ -28,6 +28,16 @@ if args.task == 'DPD_4_class_score':
                             seed = args.seed, 
                             print_info = True,
                             label_dict = {0:0, 1:1, 2:2, 3:3},
+                            patient_strat= True,
+                            patient_voting='maj',
+                            ignore=[])
+elif args.task == 'DPD_0_1_2_classes':
+    args.n_classes=3
+    dataset = Generic_WSI_Classification_Dataset(csv_path = '/local/data3/chrsp39/DPD-AI/CSVs/0_1_2_classes.csv',
+                            shuffle = False,
+                            seed = args.seed, 
+                            print_info = True,
+                            label_dict = {0:0, 1:1, 2:2},
                             patient_strat= True,
                             patient_voting='maj',
                             ignore=[])

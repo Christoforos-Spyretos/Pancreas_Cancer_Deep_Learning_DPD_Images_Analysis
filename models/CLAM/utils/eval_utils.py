@@ -133,6 +133,7 @@ def summary(model, loader, args):
             results_dict.update({'p_{}'.format(c): all_probs[:,c]})
             results_dict.update({'logits_{}'.format(c): all_logits[:,c]})
     else:
-        results_dict.update({'p': all_probs[:,1]})
+        for c in range(args.n_classes):
+            results_dict.update({'p_{}'.format(c): all_probs[:,c]})
     df = pd.DataFrame(results_dict)
     return patient_results, test_error, auc_score, df, acc_logger

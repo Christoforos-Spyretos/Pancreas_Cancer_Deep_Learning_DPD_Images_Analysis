@@ -86,3 +86,10 @@ csv = csv[csv['slide_id'].isin(imgs)]
 csv.to_csv(os.path.join(save_path, "4_class.csv"), index=False)
 
 # %%
+# drop label score 3
+csv = csv[csv['label'] != '3']
+
+# save csv for CLAM
+csv.to_csv(os.path.join(save_path, "0_1_2_classes.csv"), index=False)
+
+# %%
