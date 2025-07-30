@@ -18,16 +18,16 @@ auto_skip: True
 target_patch_size: 224 
 # path to directory containing h5 files (patches)
 data_h5_dirs: 
-- /local/data3/chrsp39/DPD-AI
+- /local/data2/chrsp39/DPD-AI
 # path to directory containing slide files
 data_slide_dirs: 
-- /local/data3/chrsp39/DPD-AI/TMA
+- /local/data2/chrsp39/DPD-AI/TMA
 # path to the CSV file listing case_id, slide_id, label
 csv_paths: 
-- /local/data3/chrsp39/DPD-AI/CSVs/4_class.csv
+- /local/data2/chrsp39/DPD-AI/CSVs/4_class.csv
 # output directory to save the features
 feat_dirs: 
-- /local/data3/chrsp39/DPD-AI/features/${model_name}
+- /local/data2/chrsp39/DPD-AI/features/${model_name}
 
 
 
